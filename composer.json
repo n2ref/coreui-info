@@ -1,0 +1,21 @@
+{
+  "name": "bluefish/coreui-alert",
+  "type": "framework",
+  "description": "PHP framework for web applications",
+  "keywords": ["framework"],
+  "homepage": "https://github.com/shabuninil/coreui-alert",
+  "license": "GNU3",
+  "authors": [
+    {
+      "name": "Igor Shabunin",
+      "email": "shabuninil24@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": ">=5.6.0",
+    "bluefish/coreui-core": "*"
+  }
+}
