@@ -4,7 +4,7 @@ CoreUI Alert
 Create and manage alerts on site pages. 
 **[DEMO](https://shabuninil.github.io/coreui-alert)**
  
-![Panel](https://raw.githubusercontent.com/shabuninil/coreui-alert/master/preview.png) 
+![Panel](https://raw.githubusercontent.com/shabuninil/coreui-alert/gh-pages/preview.png) 
 
 Installation using Composer
 ---------------------------
