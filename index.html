@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html id="page-content">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CoreUI Alert</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/coreui-alert.min.css" rel="stylesheet"/>
+    <link href="css/github-gist.css" rel="stylesheet"/>
+    <link href="css/styles.css" rel="stylesheet"/>
+</head>
+<body data-spy="scroll" data-target="#docs-sidenav">
+
+<section class="text-left">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <header>
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <span class="navbar-brand">CoreUI</span>
+                            </div>
+
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="https://shabuninil.github.io/coreui-panel">Panel</a></li>
+                                    <li><a href="https://shabuninil.github.io/coreui-form">Form</a></li>
+                                    <li><a href="https://shabuninil.github.io/coreui-table">Table</a></li>
+                                    <li><a href="https://shabuninil.github.io/coreui-tabs">Tabs</a></li>
+                                    <li><a href="https://shabuninil.github.io/coreui-tree">Tree</a></li>
+                                    <li class="active"><a href="javascript:void(0);">Alert</a></li>
+                                    <li><a href="https://shabuninil.github.io/coreui-layout">Layout</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="https://github.com/shabuninil/coreui-alert">GitHub</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </header>
+            </div>
+            <div class="col-lg-2">
+                <div id="docs-sidenav" class="hidden-xs hidden-sm hidden-md"
+                     data-spy="affix" data-offset-top="90" data-offset-bottom="70">
+                    <ul class="nav">
+                        <li><a href="#download">Download</a></li>
+                        <li>
+                            <a href="#examples">Examples</a>
+                            <ul class="nav">
+                                <li><a href="#example-types">Type alerts</a></li>
+                                <li><a href="#example-custom-content">Custom content</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#options">Options</a></li>
+                        <li><a href="#methods">Methods</a></li>
+                        <li><a href="#browser-compatibility">Browser compatibility</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <h2 id="download">Download</h2>
+                <div>
+                    <p>
+                        You can download a minimized version of the library or get the full source code at github.com.
+                    </p>
+                    <a class="btn btn-default" href="https://github.com/shabuninil/coreui-alert/archive/master.zip">Download source</a>
+
+                    <h2 class="section-margin">Install with Composer</h2>
+                    <p>
+                        You can also install the component using Composer:
+                    </p>
+                    <pre><code class="bash">$ composer require bluefish/coreui-alert</code></pre>
+
+                    <h2 class="section-margin">CoreUI Alert CDN</h2>
+                    <pre><code class="html">
+&lt;!-- Latest compiled and minified CSS --&gt;
+&lt;link href="https://raw.githubusercontent.com/shabuninil/coreui-alert/master/src/html/js/coreui-alert.min.js" rel="stylesheet"&gt;
+
+&lt;!-- Latest compiled and minified JavaScript --&gt;
+&lt;script src="https://raw.githubusercontent.com/shabuninil/coreui-alert/master/src/html/css/coreui-alert.min.css"&gt;&lt;/script&gt;
+                    </code></pre>
+                </div>
+
+
+                <h2 id="examples" class="section-margin">Examples</h2>
+                <div>
+                    <h3 id="example-types">Type alerts</h3>
+                    <div>
+                        <div class="content-example">
+                            <div id="example-success"></div>
+                            <div id="example-info"></div>
+                            <div id="example-warning"></div>
+                            <div id="example-danger"></div>
+                        </div>
+                        <div class="content-markup">
+                            <pre><code class="html">
+    &lt;link href="coreui-alert.min.css" rel="stylesheet"/&gt;
+    &lt;script src="coreui-alert.min.js"&gt;&lt;/script&gt;
+
+    &lt;div id="example-success"&gt;&lt;/div&gt;
+    &lt;div id="example-info"&gt;&lt;/div&gt;
+    &lt;div id="example-warning"&gt;&lt;/div&gt;
+    &lt;div id="example-danger"&gt;&lt;/div&gt;
+
+    &lt;script&gt;
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Success
+            var alertSuccess = new CoreUIAlert({
+                "type": "alert",
+                "view": "success",
+                "title": "Success title!",
+                "message": "You successfully read this important alert message."
+            });
+            alertSuccess.render('example-success');
+
+            // Info
+            var alertInfo = new CoreUIAlert({
+                "type": "alert",
+                "view": "info",
+                "title": "Info title!",
+                "message": "Best check yo self, you're not looking too good."
+            });
+            alertInfo.render('example-info');
+
+            // Warning
+            var alertWarning = new CoreUIAlert({
+                "type": "alert",
+                "view": "warning",
+                "title": "Warning title!",
+                "message": "Better check yourself, you're not looking too good."
+            });
+            alertWarning.render('example-warning');
+
+            // Danger
+            var alertDanger = new CoreUIAlert({
+                "type": "alert",
+                "view": "danger",
+                "title": "Danger title!",
+                "message": "Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui."
+            });
+            alertDanger.render('example-danger');
+        });
+    &lt;/script&gt;
+                            </code></pre>
+                        </div>
+                        <div class="content-php">
+                            <pre><code class="php">
+    $alert_success = CoreUI\Alert::success("You successfully read this important alert message.", "Success title!");
+    $alert_info    = CoreUI\Alert::info("Best check yo self, you're not looking too good.",       "Info title!");
+    $alert_warning = CoreUI\Alert::warning("Better check yourself, you're not looking too good.", "Warning title!");
+    $alert_danger  = CoreUI\Alert::danger("Raw denim you probably haven't heard of them jean...", "Danger title!");
+
+
+    echo json_encoded($alert_success); // JSON output success
+    echo json_encoded($alert_info);    // JSON output info
+    echo json_encoded($alert_warning); // JSON output warning
+    echo json_encoded($alert_danger);  // JSON output danger
+                            </code></pre>
+                        </div>
+                    </div>
+                    <br><br>
+
+
+                    <h3 id="example-custom">Custom content</h3>
+                    <div>
+                        <div class="content-example" id="example-custom-content"></div>
+                        <div class="content-markup">
+                            <pre><code class="html">
+    &lt;link href="coreui-alert.min.css" rel="stylesheet"/&gt;
+    &lt;script src="coreui-alert.min.js"&gt;&lt;/script&gt;
+
+    &lt;div id="example-custom-content"&gt;&lt;/div&gt;
+
+    &lt;script&gt;
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Custom content
+            var alertCustom = new CoreUIAlert({
+                "type": "alert",
+                "view": "danger",
+                "title": "Oh snap! You got an error!",
+                "message":
+                    '&lt;p&gt;Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.&lt;/p&gt;&lt;p&gt;&lt;button type="button" class="btn btn-danger"&gt;Take this action&lt;/button&gt; &lt;button type="button" class="btn btn-default"&gt;Or do this&lt;/button&gt; &lt;/p&gt;'
+            });
+            alertCustom.render('example-custom-content');
+        });
+    &lt;/script&gt;
+                            </code></pre>
+                        </div>
+                        <div class="content-php">
+                            <pre><code class="php">
+    $alert_danger = CoreUI\Alert::danger(
+        '&lt;p&gt;Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.&lt;/p&gt;&lt;p&gt;&lt;button type="button" class="btn btn-danger"&gt;Take this action&lt;/button&gt; &lt;button type="button" class="btn btn-default"&gt;Or do this&lt;/button&gt; &lt;/p&gt;',
+        "Oh snap! You got an error!"
+    );
+
+    echo json_encoded($alert_danger); // JSON output danger
+                            </code></pre>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h2 id="options" class="section-margin">Options</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped js-options-table">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>type</th>
+                            <th>default</th>
+                            <th>description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>type</td>
+                            <td>string</td>
+                            <td></td>
+                            <td>The data type. The <code> alert </code> must be specified for correct interpretation.</td>
+                        </tr>
+                        <tr>
+                            <td>view</td>
+                            <td>string</td>
+                            <td><code>warning</code></td>
+                            <td>
+                                Identify the appearance of the alert. Can have different values:
+                                <code>info</code>, <code>success</code>, <code>warning</code>, <code>danger</code>.
+                                But there may be other values if you have you will create your personal styles.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>title</td>
+                            <td>string</td>
+                            <td></td>
+                            <td>The title of the alert.</td>
+                        </tr>
+                        <tr>
+                            <td>message</td>
+                            <td>string</td>
+                            <td></td>
+                            <td>The text content of the message. It is allowed html.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <h2 id="methods" class="section-margin">Methods</h2>
+                <div>
+                    <code>alert.render('element-id')</code>
+                    <p>
+                        Forms and inserts the generated html into the specified element.
+                        The element parameter can contain the page element identifier or the page element object.
+                        If the specified parameter is not present, the method will return html.
+                    </p>
+                </div>
+
+
+                <h2 id="browser-compatibility" class="section-margin">Browser compatibility</h2>
+                <div>
+                    <p>
+                        CoreUI Alert works in most major browsers. Some details:
+                    </p>
+                    <ul>
+                        <li><b>IE: 9.</b></li>
+                        <li><b>Microsoft Edge: 12+</b></li>
+                        <li><b>Safari: 4+</b></li>
+                        <li><b>Firefox: 4+</b></li>
+                        <li><b>Chrome 14+</b></li>
+                        <li><b>Opera: 15+</b></li>
+                    </ul>
+                </div>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="buffer-content"></div>
+</section>
+
+<footer>
+    <section class="copyright">
+        <div class="container">
+            <span class="pull-left">&copy; 2017, shabuninil24@gmail.com</span>
+            <span class="pull-right">Code licensed under the GNU License</span>
+        </div>
+    </section>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // Success
+        var alertSuccess = new CoreUIAlert({
+            "type": "alert",
+            "view": "success",
+            "title": "Success title!",
+            "message": "You successfully read this important alert message."
+        });
+        alertSuccess.render('example-success');
+
+        // Info
+        var alertInfo = new CoreUIAlert({
+            "type": "alert",
+            "view": "info",
+            "title": "Info title!",
+            "message": "Best check yo self, you're not looking too good."
+        });
+        alertInfo.render('example-info');
+
+        // Warning
+        var alertWarning = new CoreUIAlert({
+            "type": "alert",
+            "view": "warning",
+            "title": "Warning title!",
+            "message": "Better check yourself, you're not looking too good."
+        });
+        alertWarning.render('example-warning');
+
+        // Danger
+        var alertDanger = new CoreUIAlert({
+            "type": "alert",
+            "view": "danger",
+            "title": "Danger title!",
+            "message": "Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui."
+        });
+        alertDanger.render('example-danger');
+
+        // Custom content
+        var alertCustom = new CoreUIAlert({
+            "type": "alert",
+            "view": "danger",
+            "title": "Oh snap! You got an error!",
+            "message":
+                '<p>Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>' +
+                '<p><button type="button" class="btn btn-danger">Take this action</button> <button type="button" class="btn btn-default">Or do this</button> </p>'
+        });
+        alertCustom.render('example-custom-content');
+
+        $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
+
+<script src="js/coreui-alert.js" type="application/javascript"></script>
+<script src="js/jquery-1.12.4.min.js" type="application/javascript"></script>
+<script src="js/bootstrap.min.js" type="application/javascript"></script>
+<script src="js/highlight.pack.js" type="application/javascript"></script>
+</body>
+</html>
