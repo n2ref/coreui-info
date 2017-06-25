@@ -8,9 +8,8 @@ namespace CoreUI;
  */
 class Alert {
 
-    protected static $added_script = false;
-    private static $memory         = array();
-    private static $in_memory      = false;
+    private static $memory    = [];
+    private static $in_memory = false;
 
     /**
      * Alert constructor.
@@ -23,74 +22,73 @@ class Alert {
 
     /**
      * Возвращает сообщение
-     * @param string $type
-     * @param string $header
+     * @param string $view
      * @param string $message
-     * @return string
+     * @param string $title
+     * @return array
      */
-    public static function create($type, $message, $header = '') {
+    public static function create($view, $message, $title = '') {
 
-        if ( ! self::$added_script) {
-            self::$added_script = true;
-            $container_dir = substr(__DIR__, strlen($_SERVER['DOCUMENT_ROOT']));
-            $scripts = "<link rel=\"stylesheet\" type=\"text/css\" href=\"{$container_dir}/html/css/styles.css\"/>";
-        } else {
-            $scripts = '';
+        $data = [
+            'type' => 'alert',
+            'view' => $view,
+        ];
+
+        if ($title) {
+            $data['title'] = $title;
         }
-
-        $header_str    = $header ? "<h4>{$header}</h4>" : '';
-        $alert_message = "{$scripts}<div class=\"alert alert-{$type}\">{$header_str}{$message}</div>";
+        $data['message'] = $message;
 
         if (self::$in_memory) {
-            self::$memory[] = [$type, $alert_message];
+            self::$memory[] = [$view, $data];
         }
 
         self::$in_memory = false;
-        return $alert_message;
+        return $data;
     }
 
 
     /**
      * Возвращает сообщение об успешном выполнении
      * @param string $message
-     * @param string $header
-     * @return string
+     * @param string $title
+     * @return array
      */
-    public static function success($message, $header = '') {
-        return self::create('success', $message, $header);
+    public static function success($message, $title = '') {
+        return self::create('success', $message, $title);
     }
 
 
     /**
      * Возвращает сообщение с информацией
      * @param string $message
-     * @param string $header
-     * @return string
+     * @param string $title
+     * @return array
      */
-    public static function info($message, $header = '') {
-        return self::create('info', $message, $header);
+    public static function info($message, $title = '') {
+        return self::create('info', $message, $title);
     }
 
 
     /**
      * Возвращает сообщение с предупреждением
-     * @param string $header,
      * @param string $message
-     * @return string
+     * @param string $title
+     * @return array
      */
-    public static function warning($message, $header = '') {
-        return self::create('warning', $message, $header);
+    public static function warning($message, $title = '') {
+        return self::create('warning', $message, $title);
     }
 
 
     /**
      * Возвращает сообщение об ошибке или опасности
-     * @param string $header,
      * @param string $message
-     * @return string
+     * @param string $title
+     * @return array
      */
-    public static function danger($message, $header = '') {
-        return self::create('danger', $message, $header);
+    public static function danger($message, $title = '') {
+        return self::create('danger', $message, $title);
     }
 
 
@@ -106,17 +104,17 @@ class Alert {
     /**
      * Возвращает сообщения из памяти
      * @param string $type
-     * @return string
+     * @return array
      */
     public static function get($type = '') {
 
-        $alert_messages = array();
+        $alert_messages = [];
 
         if ( ! empty(self::$memory)) {
             foreach (self::$memory as $key => $alert_message) {
                 if ( ! empty($alert_message[0]) && is_string($alert_message[0]) &&
-                    ! empty($alert_message[1]) && is_string($alert_message[1]) &&
-                    (empty($type) || $type == $alert_message[0])
+                     ! empty($alert_message[1]) && is_array($alert_message[1]) &&
+                    (empty($type) || $type === $alert_message[0])
                 ) {
                     $alert_messages[] = $alert_message[1];
                     unset(self::$memory[$key]);
@@ -124,6 +122,6 @@ class Alert {
             }
         }
 
-        return implode('', $alert_messages);
+        return $alert_messages;
     }
 }
