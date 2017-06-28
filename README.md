@@ -12,7 +12,7 @@ Installation using Composer
 $ composer require bluefish/coreui-alert
 ```
 
-CoreUI Panel CDN
+CoreUI Alert CDN
 ----------------
 ```html
 <!-- Latest compiled and minified CSS -->
