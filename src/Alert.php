@@ -8,18 +8,6 @@ namespace CoreUI;
  */
 class Alert {
 
-    private static $memory    = [];
-    private static $in_memory = false;
-
-    /**
-     * Alert constructor.
-     * @param bool $in_memory
-     */
-    public function __construct($in_memory = false) {
-        self::$in_memory = (bool)$in_memory;
-    }
-
-
     /**
      * Возвращает сообщение
      * @param string $view
@@ -30,7 +18,6 @@ class Alert {
     public static function create($view, $message, $title = '') {
 
         $data = [
-            'type' => 'alert',
             'view' => $view,
         ];
 
@@ -39,17 +26,34 @@ class Alert {
         }
         $data['message'] = $message;
 
-        if (self::$in_memory) {
-            self::$memory[] = [$view, $data];
-        }
-
-        self::$in_memory = false;
         return $data;
     }
 
 
     /**
-     * Возвращает сообщение об успешном выполнении
+     * Возвращает данные сообщения primary
+     * @param string $message
+     * @param string $title
+     * @return array
+     */
+    public static function primary($message, $title = '') {
+        return self::create('primary', $message, $title);
+    }
+
+
+    /**
+     * Возвращает данные сообщения secondary
+     * @param string $message
+     * @param string $title
+     * @return array
+     */
+    public static function secondary($message, $title = '') {
+        return self::create('secondary', $message, $title);
+    }
+
+
+    /**
+     * Возвращает данные сообщения success
      * @param string $message
      * @param string $title
      * @return array
@@ -60,7 +64,7 @@ class Alert {
 
 
     /**
-     * Возвращает сообщение с информацией
+     * Возвращает данные сообщения info
      * @param string $message
      * @param string $title
      * @return array
@@ -71,7 +75,7 @@ class Alert {
 
 
     /**
-     * Возвращает сообщение с предупреждением
+     * Возвращает данные сообщения warning
      * @param string $message
      * @param string $title
      * @return array
@@ -82,7 +86,7 @@ class Alert {
 
 
     /**
-     * Возвращает сообщение об ошибке или опасности
+     * Возвращает данные сообщения danger
      * @param string $message
      * @param string $title
      * @return array
@@ -93,35 +97,23 @@ class Alert {
 
 
     /**
-     * Запись следующего сообщения в память
-     * @return Alert
+     * Возвращает данные сообщения light
+     * @param string $message
+     * @param string $title
+     * @return array
      */
-    public static function memory() {
-        return new Alert(true);
+    public static function light($message, $title = '') {
+        return self::create('light', $message, $title);
     }
 
 
     /**
-     * Возвращает сообщения из памяти
-     * @param string $type
+     * Возвращает данные сообщения
+     * @param string $message
+     * @param string $title
      * @return array
      */
-    public static function get($type = '') {
-
-        $alert_messages = [];
-
-        if ( ! empty(self::$memory)) {
-            foreach (self::$memory as $key => $alert_message) {
-                if ( ! empty($alert_message[0]) && is_string($alert_message[0]) &&
-                     ! empty($alert_message[1]) && is_array($alert_message[1]) &&
-                    (empty($type) || $type === $alert_message[0])
-                ) {
-                    $alert_messages[] = $alert_message[1];
-                    unset(self::$memory[$key]);
-                }
-            }
-        }
-
-        return $alert_messages;
+    public static function dark($message, $title = '') {
+        return self::create('dark', $message, $title);
     }
 }
