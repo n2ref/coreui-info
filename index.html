@@ -7,7 +7,7 @@
     <title>CoreUI Alert</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/coreui-alert.min.css" rel="stylesheet"/>
+    <link href="css/font-awesome.min.css" rel="stylesheet"/>
     <link href="css/github-gist.css" rel="stylesheet"/>
     <link href="css/styles.css" rel="stylesheet"/>
 </head>
@@ -18,30 +18,25 @@
         <div class="row">
             <div class="col-md-12">
                 <header>
-                    <nav class="navbar navbar-default">
+                    <nav class="navbar navbar-default navbar-expand-lg">
                         <div class="container-fluid">
-                            <div class="navbar-header">
-                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                    <span class="sr-only">Toggle navigation</span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                </button>
-                                <span class="navbar-brand">CoreUI</span>
-                            </div>
+                            <span class="navbar-brand">CoreUI</span>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <i class="fa fa-bars"></i>
+                            </button>
 
-                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav">
-                                    <li><a href="https://shabuninil.github.io/coreui-panel">Panel</a></li>
-                                    <li><a href="https://shabuninil.github.io/coreui-form">Form</a></li>
-                                    <li><a href="https://shabuninil.github.io/coreui-table">Table</a></li>
-                                    <li><a href="https://shabuninil.github.io/coreui-tabs">Tabs</a></li>
-                                    <li><a href="https://shabuninil.github.io/coreui-tree">Tree</a></li>
-                                    <li class="active"><a href="javascript:void(0);">Alert</a></li>
-                                    <li><a href="https://shabuninil.github.io/coreui-layout">Layout</a></li>
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                    <li class="nav-item"><a class="nav-link" href="coreui-panel">Panel</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="coreui-form">Form</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="coreui-table">Table</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="coreui-tabs">Tabs</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="coreui-tree">Tree</a></li>
+                                    <li class="nav-item"><a class="nav-link active" href="#" onclick="return false;">Alert</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="coreui-layout">Layout</a></li>
                                 </ul>
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li><a href="https://github.com/shabuninil/coreui-alert">GitHub</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="https://github.com/shabuninil/coreui-alert">GitHub</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -49,13 +44,12 @@
                 </header>
             </div>
             <div class="col-lg-2">
-                <div id="docs-sidenav" class="hidden-xs hidden-sm hidden-md"
-                     data-spy="affix" data-offset-top="90" data-offset-bottom="70">
-                    <ul class="nav">
+                <div id="docs-sidenav" class="d-xs-none d-sm-none d-md-none d-lg-block">
+                    <ul>
                         <li><a href="#download">Download</a></li>
                         <li>
                             <a href="#examples">Examples</a>
-                            <ul class="nav">
+                            <ul>
                                 <li><a href="#example-types">Type alerts</a></li>
                                 <li><a href="#example-custom-content">Custom content</a></li>
                             </ul>
@@ -72,112 +66,158 @@
                     <p>
                         You can download a minimized version of the library or get the full source code at github.com.
                     </p>
-                    <a class="btn btn-default" href="https://github.com/shabuninil/coreui-alert/archive/master.zip">Download source</a>
+                    <a class="btn btn-secondary" href="https://github.com/shabuninil/coreui-alert/archive/master.zip">Download source</a>
+                </div>
 
-                    <h2 class="section-margin">Install with Composer</h2>
+                <h2 class="section-margin">Install with Composer</h2>
+                <div>
                     <p>
                         You can also install the component using Composer:
                     </p>
-                    <pre><code class="bash">$ composer require bluefish/coreui-alert</code></pre>
-
-                    <h2 class="section-margin">CoreUI Alert CDN</h2>
-                    <pre><code class="html">
-&lt;!-- Latest compiled and minified CSS --&gt;
-&lt;link href="https://raw.githubusercontent.com/shabuninil/coreui-alert/master/src/html/js/coreui-alert.min.js" rel="stylesheet"&gt;
-
-&lt;!-- Latest compiled and minified JavaScript --&gt;
-&lt;script src="https://raw.githubusercontent.com/shabuninil/coreui-alert/master/src/html/css/coreui-alert.min.css"&gt;&lt;/script&gt;
-                    </code></pre>
+                    <pre class="bg-light rounded-3"><code class="bash">$ composer require shabuninil/coreui-alert</code></pre>
                 </div>
 
 
                 <h2 id="examples" class="section-margin">Examples</h2>
                 <div>
-                    <h3 id="example-types">Type alerts</h3>
+                    <br>
+                    <h4 id="example-types">Type alerts</h4>
                     <div>
                         <div class="content-example">
+                            <div id="example-primary"></div>
+                            <div id="example-secondary"></div>
                             <div id="example-success"></div>
                             <div id="example-info"></div>
                             <div id="example-warning"></div>
                             <div id="example-danger"></div>
+                            <div id="example-light"></div>
+                            <div id="example-dark"></div>
                         </div>
                         <div class="content-markup">
                             <pre><code class="html">
-    &lt;link href="coreui-alert.min.css" rel="stylesheet"/&gt;
-    &lt;script src="coreui-alert.min.js"&gt;&lt;/script&gt;
+    &lt;link href="css/bootstrap.min.css" rel="stylesheet"/&gt;
+    &lt;script src="js/coreui-alert.min.js"&gt;&lt;/script&gt;
 
+    &lt;div id="example-primary"&gt;&lt;/div&gt;
+    &lt;div id="example-secondary"&gt;&lt;/div&gt;
     &lt;div id="example-success"&gt;&lt;/div&gt;
     &lt;div id="example-info"&gt;&lt;/div&gt;
     &lt;div id="example-warning"&gt;&lt;/div&gt;
     &lt;div id="example-danger"&gt;&lt;/div&gt;
+    &lt;div id="example-light"&gt;&lt;/div&gt;
+    &lt;div id="example-dark"&gt;&lt;/div&gt;
 
     &lt;script&gt;
         document.addEventListener('DOMContentLoaded', function () {
 
+            // Primary
+            var alertPrimary = new CoreUIAlert({
+                "view": "primary",
+                "title": "Primary title!",
+                "message": "A simple primary alert—check it out!"
+            });
+            document.querySelector('#example-primary').innerHTML = alertPrimary.render();
+
+            // Secondary
+            var alertSecondary  = new CoreUIAlert({
+                "view": "secondary",
+                "title": "Secondary title!",
+                "message": "A simple secondary alert—check it out!"
+            });
+            document.querySelector('#example-secondary').innerHTML = alertSecondary.render();
+
             // Success
             var alertSuccess = new CoreUIAlert({
-                "type": "alert",
                 "view": "success",
                 "title": "Success title!",
                 "message": "You successfully read this important alert message."
             });
-            alertSuccess.render('example-success');
+            document.querySelector('#example-success').innerHTML = alertSuccess.render();
 
             // Info
             var alertInfo = new CoreUIAlert({
-                "type": "alert",
                 "view": "info",
                 "title": "Info title!",
                 "message": "Best check yo self, you're not looking too good."
             });
-            alertInfo.render('example-info');
+            document.querySelector('#example-info').innerHTML = alertInfo.render();
 
             // Warning
             var alertWarning = new CoreUIAlert({
-                "type": "alert",
                 "view": "warning",
                 "title": "Warning title!",
                 "message": "Better check yourself, you're not looking too good."
             });
-            alertWarning.render('example-warning');
+            document.querySelector('#example-warning').innerHTML = alertWarning.render();
 
             // Danger
             var alertDanger = new CoreUIAlert({
-                "type": "alert",
                 "view": "danger",
                 "title": "Danger title!",
                 "message": "Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui."
             });
-            alertDanger.render('example-danger');
+            document.querySelector('#example-danger').innerHTML = alertDanger.render();
+
+            // Danger
+            var alertDanger = new CoreUIAlert({
+                "view": "danger",
+                "title": "Danger title!",
+                "message": "Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui."
+            });
+            document.querySelector('#example-danger').innerHTML = alertDanger.render();
+
+            // Light
+            var alertLight = new CoreUIAlert({
+                "view": "light",
+                "title": "Light title!",
+                "message": "A simple light alert—check it out!"
+            });
+            document.querySelector('#example-light').innerHTML = alertLight.render();
+
+            // Dark
+            var alertDark = new CoreUIAlert({
+                "view": "dark",
+                "title": "Dark title!",
+                "message": "A simple dark alert—check it out!"
+            });
+            document.querySelector('#example-dark').innerHTML = alertDark.render();
         });
     &lt;/script&gt;
                             </code></pre>
                         </div>
                         <div class="content-php">
                             <pre><code class="php">
-    $alert_success = CoreUI\Alert::success("You successfully read this important alert message.", "Success title!");
-    $alert_info    = CoreUI\Alert::info("Best check yo self, you're not looking too good.",       "Info title!");
-    $alert_warning = CoreUI\Alert::warning("Better check yourself, you're not looking too good.", "Warning title!");
-    $alert_danger  = CoreUI\Alert::danger("Raw denim you probably haven't heard of them jean...", "Danger title!");
+    $alert_primary   = CoreUI\Alert::primary("A simple primary alert—check it out!",                "Primary title!");
+    $alert_secondary = CoreUI\Alert::secondary("A simple secondary alert—check it out!",            "Secondary title!");
+    $alert_success   = CoreUI\Alert::success("You successfully read this important alert message.", "Success title!");
+    $alert_info      = CoreUI\Alert::info("Best check yo self, you're not looking too good.",       "Info title!");
+    $alert_warning   = CoreUI\Alert::warning("Better check yourself, you're not looking too good.", "Warning title!");
+    $alert_danger    = CoreUI\Alert::danger("Raw denim you probably haven't heard of them jean...", "Danger title!");
+    $alert_light     = CoreUI\Alert::light("A simple light alert—check it out!",                    "Dark title!");
+    $alert_dark      = CoreUI\Alert::dark("A simple dark alert—check it out!",                      "Light title!");
 
 
-    echo json_encoded($alert_success); // JSON output success
-    echo json_encoded($alert_info);    // JSON output info
-    echo json_encoded($alert_warning); // JSON output warning
-    echo json_encoded($alert_danger);  // JSON output danger
+    echo json_encoded($alert_primary);   // JSON output primary
+    echo json_encoded($alert_secondary); // JSON output secondary
+    echo json_encoded($alert_success);   // JSON output success
+    echo json_encoded($alert_info);      // JSON output info
+    echo json_encoded($alert_warning);   // JSON output warning
+    echo json_encoded($alert_danger);    // JSON output danger
+    echo json_encoded($alert_light);     // JSON output light
+    echo json_encoded($alert_dark);      // JSON output dark
                             </code></pre>
                         </div>
                     </div>
+
                     <br><br>
 
-
-                    <h3 id="example-custom">Custom content</h3>
+                    <h4 id="example-custom">Custom content</h4>
                     <div>
                         <div class="content-example" id="example-custom-content"></div>
                         <div class="content-markup">
                             <pre><code class="html">
-    &lt;link href="coreui-alert.min.css" rel="stylesheet"/&gt;
-    &lt;script src="coreui-alert.min.js"&gt;&lt;/script&gt;
+    &lt;link href="css/bootstrap.min.css" rel="stylesheet"/&gt;
+    &lt;script src="js/coreui-alert.min.js"&gt;&lt;/script&gt;
 
     &lt;div id="example-custom-content"&gt;&lt;/div&gt;
 
@@ -189,10 +229,9 @@
                 "type": "alert",
                 "view": "danger",
                 "title": "Oh snap! You got an error!",
-                "message":
-                    '&lt;p&gt;Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.&lt;/p&gt;&lt;p&gt;&lt;button type="button" class="btn btn-danger"&gt;Take this action&lt;/button&gt; &lt;button type="button" class="btn btn-default"&gt;Or do this&lt;/button&gt; &lt;/p&gt;'
+                "message": '&lt;p&gt;Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.&lt;/p&gt;&lt;p&gt;&lt;button type="button" class="btn btn-danger"&gt;Take this action&lt;/button&gt; &lt;button type="button" class="btn btn-secondary"&gt;Or do this&lt;/button&gt;&lt;/p&gt;'
             });
-            alertCustom.render('example-custom-content');
+            document.querySelector('#example-custom-content').innerHTML = alertCustom.render();
         });
     &lt;/script&gt;
                             </code></pre>
@@ -200,7 +239,7 @@
                         <div class="content-php">
                             <pre><code class="php">
     $alert_danger = CoreUI\Alert::danger(
-        '&lt;p&gt;Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.&lt;/p&gt;&lt;p&gt;&lt;button type="button" class="btn btn-danger"&gt;Take this action&lt;/button&gt; &lt;button type="button" class="btn btn-default"&gt;Or do this&lt;/button&gt; &lt;/p&gt;',
+        '&lt;p&gt;Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.&lt;/p&gt;&lt;p&gt;&lt;button type="button" class="btn btn-danger"&gt;Take this action&lt;/button&gt; &lt;button type="button" class="btn btn-secondary"&gt;Or do this&lt;/button&gt; &lt;/p&gt;',
         "Oh snap! You got an error!"
     );
 
@@ -224,18 +263,12 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td>type</td>
-                            <td>string</td>
-                            <td></td>
-                            <td>The data type. The <code> alert </code> must be specified for correct interpretation.</td>
-                        </tr>
-                        <tr>
                             <td>view</td>
                             <td>string</td>
-                            <td><code>warning</code></td>
+                            <td><code>primary</code></td>
                             <td>
                                 Identify the appearance of the alert. Can have different values:
-                                <code>info</code>, <code>success</code>, <code>warning</code>, <code>danger</code>.
+                                <code>primary</code>, <code>secondary</code>, <code>info</code>, <code>success</code>, <code>warning</code>, <code>danger</code>, <code>light</code>, <code>dark</code>.
                                 But there may be other values if you have you will create your personal styles.
                             </td>
                         </tr>
@@ -258,28 +291,10 @@
 
                 <h2 id="methods" class="section-margin">Methods</h2>
                 <div>
-                    <code>alert.render('element-id')</code>
+                    <code>alert.render()</code>
                     <p>
-                        Forms and inserts the generated html into the specified element.
-                        The element parameter can contain the page element identifier or the page element object.
-                        If the specified parameter is not present, the method will return html.
+                        Generates HTML for insertion into the required element.
                     </p>
-                </div>
-
-
-                <h2 id="browser-compatibility" class="section-margin">Browser compatibility</h2>
-                <div>
-                    <p>
-                        CoreUI Alert works in most major browsers. Some details:
-                    </p>
-                    <ul>
-                        <li><b>IE: 9.</b></li>
-                        <li><b>Microsoft Edge: 12+</b></li>
-                        <li><b>Safari: 4+</b></li>
-                        <li><b>Firefox: 4+</b></li>
-                        <li><b>Chrome 14+</b></li>
-                        <li><b>Opera: 15+</b></li>
-                    </ul>
                 </div>
                 <br>
                 <br>
@@ -292,7 +307,7 @@
 <footer>
     <section class="copyright">
         <div class="container">
-            <span class="pull-left">&copy; 2017, shabuninil24@gmail.com</span>
+            <span class="pull-left">shabuninil24@gmail.com</span>
             <span class="pull-right">Code licensed under the GNU License</span>
         </div>
     </section>
@@ -301,52 +316,79 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
 
+        // Primary
+        var alertPrimary = new CoreUIAlert({
+            "view": "primary",
+            "title": "Primary title!",
+            "message": "A simple primary alert—check it out!"
+        });
+        document.querySelector('#example-primary').innerHTML = alertPrimary.render();
+
+        // Secondary
+        var alertSecondary  = new CoreUIAlert({
+            "view": "secondary",
+            "title": "Secondary title!",
+            "message": "A simple secondary alert—check it out!"
+        });
+        document.querySelector('#example-secondary').innerHTML = alertSecondary.render();
+
         // Success
         var alertSuccess = new CoreUIAlert({
-            "type": "alert",
             "view": "success",
             "title": "Success title!",
             "message": "You successfully read this important alert message."
         });
-        alertSuccess.render('example-success');
+        document.querySelector('#example-success').innerHTML = alertSuccess.render();
 
         // Info
         var alertInfo = new CoreUIAlert({
-            "type": "alert",
             "view": "info",
             "title": "Info title!",
             "message": "Best check yo self, you're not looking too good."
         });
-        alertInfo.render('example-info');
+        document.querySelector('#example-info').innerHTML = alertInfo.render();
 
         // Warning
         var alertWarning = new CoreUIAlert({
-            "type": "alert",
             "view": "warning",
             "title": "Warning title!",
             "message": "Better check yourself, you're not looking too good."
         });
-        alertWarning.render('example-warning');
+        document.querySelector('#example-warning').innerHTML = alertWarning.render();
 
         // Danger
         var alertDanger = new CoreUIAlert({
-            "type": "alert",
             "view": "danger",
             "title": "Danger title!",
             "message": "Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui."
         });
-        alertDanger.render('example-danger');
+        document.querySelector('#example-danger').innerHTML = alertDanger.render();
+
+        // Light
+        var alertLight = new CoreUIAlert({
+            "view": "light",
+            "title": "Light title!",
+            "message": ""
+        });
+        document.querySelector('#example-light').innerHTML = alertLight.render();
+
+        // Dark
+        var alertDark = new CoreUIAlert({
+            "view": "dark",
+            "title": "Dark title!",
+            "message": "A simple dark alert—check it out!"
+        });
+        document.querySelector('#example-dark').innerHTML = alertDark.render();
 
         // Custom content
         var alertCustom = new CoreUIAlert({
-            "type": "alert",
             "view": "danger",
             "title": "Oh snap! You got an error!",
             "message":
                 '<p>Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>' +
-                '<p><button type="button" class="btn btn-danger">Take this action</button> <button type="button" class="btn btn-default">Or do this</button> </p>'
+                '<p><button type="button" class="btn btn-danger">Take this action</button> <button type="button" class="btn btn-secondary">Or do this</button> </p>'
         });
-        alertCustom.render('example-custom-content');
+        document.querySelector('#example-custom-content').innerHTML = alertCustom.render();
 
         $('pre code').each(function(i, block) {
             hljs.highlightBlock(block);
@@ -355,7 +397,7 @@
 </script>
 
 <script src="js/coreui-alert.min.js" type="application/javascript"></script>
-<script src="js/jquery-1.12.4.min.js" type="application/javascript"></script>
+<script src="js/jquery-3.5.1.min.js" type="application/javascript"></script>
 <script src="js/bootstrap.min.js" type="application/javascript"></script>
 <script src="js/highlight.pack.js" type="application/javascript"></script>
 </body>
