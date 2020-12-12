@@ -1,27 +1,20 @@
 /**
- *
+ * Контекстные сообщения
  * @param options
  * @constructor
  */
 function CoreUIAlert(options) {
+
     if ( ! options instanceof Object) {
-        throw new Error('Указанные данные не являются объектом');
-    }
-
-    if (options.type === undefined) {
-        throw new Error('Не удалось распознать тип указанных данных');
-    }
-
-    if (options.type !== 'alert') {
-        throw new Error('Некорректный тип указанных данных');
+        throw new Error('The specified data is not an object');
     }
 
     if (options.message === undefined) {
-        throw new Error('Отсутствует текст сообщения');
+        throw new Error('Missing message text');
     }
 
     if (options.view === undefined) {
-        options.view = 'warning';
+        options.view = 'primary';
     }
 
     this._options = options;
@@ -29,17 +22,18 @@ function CoreUIAlert(options) {
 
 
 /**
- *
- * @param element
+ * Рендер html
+ * @return {string}
  */
-CoreUIAlert.prototype.render = function(element) {
+CoreUIAlert.prototype.render = function() {
 
-    var tpl = '<div class="coreui-alert coreui-alert-{{view}}">' +
-                  '{{if title}}' +
-                      '<h4>{{title}}</h4>' +
-                  '{{/if}}' +
-                  '{{message}}' +
-              '</div>';
+    var tpl =
+        '<div class="alert alert-{{view}}">' +
+            '{{if title}}' +
+                '<h4>{{title}}</h4>' +
+            '{{/if}}' +
+            '{{message}}' +
+        '</div>';
 
 
     /**
@@ -104,23 +98,5 @@ CoreUIAlert.prototype.render = function(element) {
 
 
     var clone_options = Object.assign({}, this._options);
-    var html = templater(tpl, clone_options);
-
-    if (element === undefined) {
-        return html;
-    }
-
-    var domElement = {};
-
-    if (typeof element === 'string') {
-        domElement = document.getElementById(element);
-
-        if ( ! domElement) {
-            return '';
-        }
-    } else if (element instanceof HTMLElement) {
-        domElement = element;
-    }
-
-    domElement.innerHTML = html;
+    return  templater(tpl, clone_options);
 };
