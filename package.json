@@ -1,0 +1,31 @@
+{
+  "name": "coreui-panel",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build_all": "gulp build_js && gulp build_css",
+
+    "build_js": "gulp build_js",
+    "build_js_fast": "gulp build_js_fast",
+
+    "build_css": "gulp build_css",
+    "build_css_fast": "gulp build_css_fast",
+
+    "build_watch": "gulp build_watch",
+    "text_js": "eslint -c .eslintrc.json --max-warnings 100 --ext .js ./src/js"
+  },
+  "dependencies": {
+    "bootstrap": "5.3.0-alpha3",
+    "jquery": "^3.6.*"
+  },
+  "devDependencies": {
+    "gulp": "4.*",
+    "gulp-concat": "2.*",
+    "gulp-sourcemaps": "3.*",
+    "gulp-uglify": "3.0.*",
+    "gulp-clean-css": "4.*"
+  },
+  "keywords": [],
+  "author": "shabuninil",
+  "license": "ISC"
+}
