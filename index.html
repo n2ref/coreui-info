@@ -214,26 +214,36 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td>view</td>
-                            <td>string</td>
-                            <td><code>primary</code></td>
+                            <td>id</td> <td>string</td> <td><code>crc32b</code></td>
                             <td>
-                                Identify the appearance of the alert. Can have different values:
-                                <code>primary</code>, <code>secondary</code>, <code>info</code>, <code>success</code>, <code>warning</code>, <code>danger</code>, <code>light</code>, <code>dark</code>.
-                                But there may be other values if you have you will create your personal styles.
+                                Идентификатор панели
                             </td>
                         </tr>
                         <tr>
-                            <td>title</td>
-                            <td>string</td>
-                            <td></td>
-                            <td>The title of the alert.</td>
+                            <td>type</td> <td>string</td> <td><code>light</code></td>
+                            <td>
+                                Вид предупреждения. Может иметь следующие значения: <code>primary</code>, <code>secondary</code>, <code>info</code>, <code>success</code>, <code>warning</code>, <code>danger</code>, <code>light</code>, <code>dark</code>
+                            </td>
                         </tr>
                         <tr>
-                            <td>message</td>
-                            <td>string</td>
-                            <td></td>
-                            <td>The text content of the message. It is allowed html.</td>
+                            <td>title</td> <td>string</td> <td></td>
+                            <td>Заголовок панели</td>
+                        </tr>
+                        <tr>
+                            <td>message</td> <td>string</td> <td></td>
+                            <td>Текстовое содержание сообщения. Разрешен html.</td>
+                        </tr>
+                        <tr>
+                            <td>isClose</td> <td>bool</td> <td>false</td>
+                            <td>Признак закрывается ли панель или нет</td>
+                        </tr>
+                        <tr>
+                            <td>onClose</td> <td>function</td> <td></td>
+                            <td>Обработка события начала закрытия панели</td>
+                        </tr>
+                        <tr>
+                            <td>onClosed</td> <td>function</td> <td></td>
+                            <td>Обработка события окончания закрытия панели</td>
                         </tr>
                         </tbody>
                     </table>
@@ -242,9 +252,28 @@
 
                 <h2 id="methods" class="section-margin">Methods</h2>
                 <div>
-                    <code>alert.render()</code>
+                    <code>let info = CoreUI.info.create( options )</code>
+                    <p>Метод для создания экземпляра сообщения.</p>
+
+                    <code>let info = CoreUI.info.get('info-id')</code>
+                    <p>Получение ранее созданного сообщения по id</p>
+
+                    <code>info.render('info-id')</code>
                     <p>
-                        Generates HTML for insertion into the required element.
+                        Формирует и вставляет сгенерированную html-сообщения в указанный элемент, в его конец.
+                        Параметр элемента может содержать идентификатор элемента страницы или объект элемента страницы.
+                        Если параметр не указан, метод вернет сформированный html код сообщения
+                    </p>
+
+                    <code>info.initEvents()</code>
+                    <p>
+                        Инициализировать события сообщения.
+                        При использовании метода <code>info.render('element-id')</code> c переданным элементом, метод <code>info.initEvents()</code> выполняется автоматически.
+                    </p>
+
+                    <code>info.getId()</code>
+                    <p>
+                        Получение идентификатора панели
                     </p>
                 </div>
                 <br>
