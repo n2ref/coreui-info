@@ -1,6 +1,6 @@
 {
   "name": "coreui-info",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CoreUI Info",
   "scripts": {
     "build_all": "gulp build_js",

@@ -8,7 +8,7 @@ const uglify     = require('gulp-uglify');
 var conf = {
     dist: "./dist",
     js: {
-        file: 'coreui.info.min.js',
+        file: 'coreui-info.min.js',
         src: [
             'src/js/coreui.info.js',
             'src/js/coreui.info.instance.js',
