@@ -1,7 +1,7 @@
 CoreUI Info
 ============
  
-**[DEMO](https://shabuninil.github.io/coreui-info)**
+**[DEMO](https://n2ref.github.io/coreui-info)**
 
 Installation using NPM
 ---------------------------
@@ -71,4 +71,4 @@ $ npm install coreui-info
 
 Result 
 
-![Preview](https://raw.githubusercontent.com/shabuninil/coreui-info/master/preview.png) 
+![Preview](https://raw.githubusercontent.com/n2ref/coreui-info/master/preview.png) 

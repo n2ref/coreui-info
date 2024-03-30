@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shabuninil/coreui-info.git"
+    "url": "git+https://github.com/n2ref/coreui-info.git"
   },
   "keywords": [
     "js",
@@ -32,10 +32,10 @@
     "info",
     "bootstrap"
   ],
-  "author": "shabuninil",
+  "author": "n2ref",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/shabuninil/coreui-info/issues"
+    "url": "https://github.com/n2ref/coreui-info/issues"
   },
-  "homepage": "https://github.com/shabuninil/coreui-info#readme"
+  "homepage": "https://github.com/n2ref/coreui-info#readme"
 }
