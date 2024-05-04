@@ -1,7 +1,7 @@
 
-var CoreUI = typeof CoreUI !== 'undefined' ? CoreUI : {};
+import coreuiInfoInstance  from "./coreui.info.instance";
 
-CoreUI.info = {
+let coreUIInfo = {
 
     _instances: {},
 
@@ -10,7 +10,7 @@ CoreUI.info = {
      */
     create: function (options) {
 
-        let instance = $.extend({}, this.instance);
+        let instance = $.extend(true, {}, coreuiInfoInstance);
         instance._init(options instanceof Object ? options : {});
 
         let infoId = instance.getId();
@@ -22,7 +22,7 @@ CoreUI.info = {
 
     /**
      * @param {string} id
-     * @returns {CoreUI.info.instance|null}
+     * @returns {object|null}
      */
     get: function (id) {
 
@@ -30,7 +30,7 @@ CoreUI.info = {
             return null;
         }
 
-        if ($('#coreui-info-' + this._instances[id])[0]) {
+        if ( ! $('#coreui-info-' + id)[0]) {
             delete this._instances[id];
             return null;
         }
@@ -105,33 +105,67 @@ CoreUI.info = {
 
 
     /**
-     * @returns {string}
-     * @private
+     * @param message
+     * @param title
+     * @param options
      */
-    _hashCode: function() {
-        return this._crc32((new Date().getTime() + Math.random()).toString()).toString(16);
+    secondary: function (message, title, options) {
+
+        options = typeof options === 'object' ? options : {};
+        options.type    = "secondary";
+        options.title   = title;
+        options.message = message;
+
+        return this.create(options).render();
     },
 
 
     /**
-     * @param str
-     * @returns {number}
-     * @private
+     * @param message
+     * @param title
+     * @param options
      */
-    _crc32: function (str) {
+    primary: function (message, title, options) {
 
-        for (var a, o = [], c = 0; c < 256; c++) {
-            a = c;
-            for (var f = 0; f < 8; f++) {
-                a = 1 & a ? 3988292384 ^ a >>> 1 : a >>> 1
-            }
-            o[c] = a
-        }
+        options = typeof options === 'object' ? options : {};
+        options.type    = "primary";
+        options.title   = title;
+        options.message = message;
 
-        for (var n = -1, t = 0; t < str.length; t++) {
-            n = n >>> 8 ^ o[255 & (n ^ str.charCodeAt(t))]
-        }
+        return this.create(options).render();
+    },
 
-        return (-1 ^ n) >>> 0;
+
+    /**
+     * @param message
+     * @param title
+     * @param options
+     */
+    light: function (message, title, options) {
+
+        options = typeof options === 'object' ? options : {};
+        options.type    = "light";
+        options.title   = title;
+        options.message = message;
+
+        return this.create(options).render();
+    },
+
+
+    /**
+     * @param message
+     * @param title
+     * @param options
+     */
+    dark: function (message, title, options) {
+
+        options = typeof options === 'object' ? options : {};
+        options.type    = "dark";
+        options.title   = title;
+        options.message = message;
+
+        return this.create(options).render();
     }
 }
+
+export default coreUIInfo;

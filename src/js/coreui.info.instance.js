@@ -1,7 +1,6 @@
+import coreuiInfoUtils from "./coreui.info.utils";
 
-var CoreUI = typeof CoreUI !== 'undefined' ? CoreUI : {};
-
-CoreUI.info.instance = {
+let coreuiInfoInstance = {
 
     _options: {
         id: '',
@@ -20,10 +19,10 @@ CoreUI.info.instance = {
      */
     _init: function (options) {
 
-        this._options = $.extend({}, this._options, options);
+        this._options = $.extend(true, {}, this._options, options);
 
         if ( ! this._options.id) {
-            this._options.id = CoreUI.info._hashCode();
+            this._options.id = coreuiInfoUtils.hashCode();
         }
 
         this._options.type = options.hasOwnProperty('type') && typeof options.type === 'string'
@@ -141,3 +140,5 @@ CoreUI.info.instance = {
         return this._options.id;
     }
 }
+
+export default coreuiInfoInstance;
