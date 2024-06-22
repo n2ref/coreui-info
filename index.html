@@ -30,9 +30,8 @@
                                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                     <li class="nav-item"><a class="nav-link" href="https://n2ref.github.io/coreui-panel">Panel</a></li>
                                     <li class="nav-item"><a class="nav-link" href="https://n2ref.github.io/coreui-form">Form</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="https://n2ref.github.io/coreui-tabs">Tabs</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="https://n2ref.github.io/coreui-layout">Layout</a></li>
                                     <li class="nav-item"><a class="nav-link" href="https://n2ref.github.io/coreui-table">Table</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="https://n2ref.github.io/coreui-layout">Layout</a></li>
                                     <li class="nav-item"><span class="nav-link active">Info</span></li>
                                     <li class="nav-item"><a class="nav-link" href="https://n2ref.github.io/coreui-modal">Modal</a></li>
                                     <li class="nav-item"><a class="nav-link" href="https://n2ref.github.io/coreui-notice">Notice</a></li>
@@ -63,33 +62,35 @@
                         </li>
                         <li><a href="#options">Options</a></li>
                         <li><a href="#methods">Methods</a></li>
-                        <li><a href="#events">Events</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-10">
-                <h2 id="download">Download</h2>
-                <div>
-                    <p>
-                        You can download a minimized version of the library or get the full source code at github.com.
-                    </p>
-                    <a class="btn btn-secondary" href="https://github.com/n2ref/coreui-info/archive/master.zip">Download source</a>
-                </div>
+                <div id="get-started">
+                    <h2 class="mb-4">Get started</h2>
 
-                <h2 class="section-margin">Install with NPM</h2>
-                <div>
-                    <p>
-                        You can also install the component using NPM:
-                    </p>
-                    <pre class="bg-light rounded-3"><code class="bash">$ npm install coreui-info</code></pre>
-                </div>
+                    <div id="download">
+                        <h4>Download</h4>
+                        <p>
+                            You can download a minimized version of the library or get the full source code at github.com.
+                        </p>
+                        <a class="btn btn-secondary" href="https://github.com/n2ref/coreui-info/archive/master.zip">Download source</a>
+                    </div>
 
-
-                <h2 id="examples" class="section-margin">Examples</h2>
-                <div>
-                    <br>
-                    <h4 id="example-types">Type info panels</h4>
                     <div>
+                        <h4 class="section-margin">Install with NPM</h4>
+                        <p>
+                            You can also install the component using NPM:
+                        </p>
+                        <pre class="bg-light rounded-3"><code class="bash">$ npm install coreui-info</code></pre>
+                    </div>
+                </div>
+
+                <div id="examples">
+                    <h2 class="section-margin mb-4">Examples</h2>
+
+                    <div id="example-types" class="mb-4">
+                        <h4>Type info panels</h4>
                         <div class="content-example">
                             <div id="example-info"></div>
                             <div id="example-warning"></div>
@@ -162,10 +163,10 @@
                         </div>
                     </div>
 
-                    <br><br>
 
-                    <h4 id="example-full">Full content</h4>
-                    <div>
+                    <div id="example-full" class="mb-4">
+                        <h4>Full content</h4>
+
                         <div class="content-example" id="example-full-content"></div>
                         <div class="content-markup">
                             <pre><code class="html">
@@ -202,8 +203,8 @@
                 </div>
 
 
-                <h2 id="options" class="section-margin">Options</h2>
-                <div class="table-responsive">
+                <div id="options" class="table-responsive mb-4">
+                    <h2 class="section-margin">Options</h2>
                     <table class="table table-bordered table-striped js-options-table">
                         <thead>
                         <tr>
@@ -251,8 +252,8 @@
                 </div>
 
 
-                <h2 id="methods" class="section-margin">Methods</h2>
-                <div>
+                <div id="methods" class="mb-4">
+                    <h2 class="section-margin">Methods</h2>
                     <code>let info = CoreUI.info.create( options )</code>
                     <p>Метод для создания экземпляра сообщения.</p>
 
