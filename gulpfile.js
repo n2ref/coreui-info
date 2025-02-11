@@ -12,7 +12,7 @@ var conf = {
     js: {
         fileMin: 'coreui-info.min.js',
         file: 'coreui-info.js',
-        main: 'src/js/main.js',
+        main: 'src/main.js',
         src: 'src/js/**/*.js'
     }
 };
@@ -72,7 +72,11 @@ gulp.task('build_js_min', function() {
         .pipe(source(conf.js.fileMin))
         .pipe(buffer())
         .pipe(sourcemaps.init())
-        .pipe(uglify())
+        .pipe(uglify({
+            mangle: {
+                reserved: ['InfoInstance']
+            }
+        }))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(conf.dist));
 });

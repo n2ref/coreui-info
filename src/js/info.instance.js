@@ -1,8 +1,8 @@
-import coreuiInfoUtils from "./coreui.info.utils";
+import InfoUtils from "./info.utils";
 
-let coreuiInfoInstance = {
+class InfoInstance {
 
-    _options: {
+    _options = {
         id: '',
         type: '',
         title: '',
@@ -10,19 +10,19 @@ let coreuiInfoInstance = {
         onClose: null,
         onClosed: null,
         isClose: false,
-    },
+    }
 
 
     /**
      *
      * @param options
      */
-    _init: function (options) {
+    constructor(options) {
 
         this._options = $.extend(true, {}, this._options, options);
 
         if ( ! this._options.id) {
-            this._options.id = coreuiInfoUtils.hashCode();
+            this._options.id = InfoUtils.hashCode();
         }
 
         this._options.type = options.hasOwnProperty('type') && typeof options.type === 'string'
@@ -38,13 +38,13 @@ let coreuiInfoInstance = {
             : null;
 
         this._options.isClose = options.hasOwnProperty('isClose') && typeof options.isClose;
-    },
+    }
 
 
     /**
      *
      */
-    initEvents: function () {
+    initEvents() {
 
         const element = document.getElementById('info-' + this._options.id)
 
@@ -65,14 +65,14 @@ let coreuiInfoInstance = {
                 that._options.onClosed(event);
             }
         });
-    },
+    }
 
 
     /**
      * @param element
      * @returns {string}
      */
-    render: function (element) {
+    render(element) {
 
         let tplTitle = this._options.title
             ? '<h4>' + this._options.title + '</h4>'
@@ -116,29 +116,31 @@ let coreuiInfoInstance = {
 
         $(domElement).append(tpl);
         this.initEvents();
-    },
+    }
 
 
     /**
      *
      */
-    close: function () {
+    close() {
 
         if ( ! $('#info-' + this._options.id)[0]) {
             return;
         }
 
-        const alert = bootstrap.Alert.getOrCreateInstance('#info-' + this._options.id)
-        alert.close();
-    },
+        if (window.hasOwnProperty('bootstrap')) {
+            const alert = bootstrap.Alert.getOrCreateInstance('#info-' + this._options.id)
+            alert.close();
+        }
+    }
 
 
     /**
      *
      */
-    getId: function () {
+    getId() {
         return this._options.id;
     }
 }
 
-export default coreuiInfoInstance;
+export default InfoInstance;

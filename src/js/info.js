@@ -1,17 +1,17 @@
 
-import coreuiInfoInstance  from "./coreui.info.instance";
+import InfoInstance  from "./info.instance";
 
-let coreUIInfo = {
+let Info = {
 
     _instances: {},
 
     /**
-     * @param options
+     * @param {Object} options
+     * @return {InfoInstance}
      */
     create: function (options) {
 
-        let instance = $.extend(true, {}, coreuiInfoInstance);
-        instance._init(options instanceof Object ? options : {});
+        let instance = new InfoInstance(options instanceof Object ? options : {});
 
         let infoId = instance.getId();
         this._instances[infoId] = instance;
@@ -40,10 +40,10 @@ let coreUIInfo = {
 
 
     /**
-     *
      * @param message
      * @param title
      * @param options
+     * @return {InfoInstance}
      */
     info: function (message, title, options) {
 
@@ -60,6 +60,7 @@ let coreUIInfo = {
      * @param message
      * @param title
      * @param options
+     * @return {InfoInstance}
      */
     warning: function (message, title, options) {
 
@@ -76,6 +77,7 @@ let coreUIInfo = {
      * @param message
      * @param title
      * @param options
+     * @return {InfoInstance}
      */
     danger: function (message, title, options) {
 
@@ -92,6 +94,7 @@ let coreUIInfo = {
      * @param message
      * @param title
      * @param options
+     * @return {InfoInstance}
      */
     success: function (message, title, options) {
 
@@ -108,6 +111,7 @@ let coreUIInfo = {
      * @param message
      * @param title
      * @param options
+     * @return {InfoInstance}
      */
     secondary: function (message, title, options) {
 
@@ -124,6 +128,7 @@ let coreUIInfo = {
      * @param message
      * @param title
      * @param options
+     * @return {InfoInstance}
      */
     primary: function (message, title, options) {
 
@@ -140,6 +145,7 @@ let coreUIInfo = {
      * @param message
      * @param title
      * @param options
+     * @return {InfoInstance}
      */
     light: function (message, title, options) {
 
@@ -156,6 +162,7 @@ let coreUIInfo = {
      * @param message
      * @param title
      * @param options
+     * @return {InfoInstance}
      */
     dark: function (message, title, options) {
 
@@ -168,4 +175,4 @@ let coreUIInfo = {
     }
 }
 
-export default coreUIInfo;
+export default Info;

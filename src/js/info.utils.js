@@ -1,5 +1,5 @@
 
-let coreuiInfoUtils = {
+let InfoUtils = {
 
 
     /**
@@ -34,4 +34,4 @@ let coreuiInfoUtils = {
     }
 }
 
-export default coreuiInfoUtils;
+export default InfoUtils;
